@@ -6,7 +6,7 @@
 The app displays a question and reacts to the user tap command to reveal the answer.
 
 ### App Walk-though
-<img src="https://recordit.co/Uexw3hKDtU" width=200><br>
+<img src="http://g.recordit.co/c5AGXQaRxK.gif" width=200><br>
 
 ## Required
 - [x] Create New Project in Android Studio
