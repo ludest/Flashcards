@@ -11,18 +11,65 @@
         android:id="@+id/flashcard_question"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="What is Bruno Mars real name?"
+        android:textColor="@color/white"
         android:textSize="40sp"
-        android:textColor="@color/black" />
+        android:background="@drawable/background_question" />
 
     <TextView
         android:id="@+id/flashcard_answer"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="Peter"
         android:textColor="@color/black"
         android:textSize="40sp"
+        android:background="@drawable/background_answer"
         android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/answer_option1"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@id/flashcard_question"
+        android:layout_marginTop="25dp"
+        android:layout_marginHorizontal="40dp"
+        android:background="@drawable/background_options"
+        android:gravity="center"
+        android:text="John"
+        android:textColor="@color/black"
+        android:textSize="40dp" />
+
+    <TextView
+        android:id="@+id/answer_option2"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@id/answer_option1"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="40dp"
+        android:background="@drawable/background_options"
+        android:gravity="center"
+        android:text="Bruno"
+        android:textColor="@color/black"
+        android:textSize="40dp" />
+
+    <TextView
+        android:id="@+id/answer_option3"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@id/answer_option2"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginHorizontal="40dp"
+        android:background="@drawable/background_options"
+        android:gravity="center"
+        android:text="Peter"
+        android:textColor="@color/black"
+        android:textSize="40dp" />
+
 </RelativeLayout>

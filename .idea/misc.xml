@@ -5,7 +5,9 @@
       <map>
         <entry key="..\:/Users/User/AndroidStudioProjects/Flashcards/app/src/main/res/drawable/background.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Flashcards/app/src/main/res/drawable/background_answer.xml" value="0.1025" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Flashcards/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Flashcards/app/src/main/res/drawable/background_options.xml" value="0.122" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Flashcards/app/src/main/res/drawable/background_question.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Flashcards/app/src/main/res/layout/activity_main.xml" value="0.2" />
       </map>
     </option>
   </component>
