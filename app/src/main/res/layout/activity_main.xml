@@ -32,7 +32,6 @@
         android:textSize="40sp"
         android:visibility="invisible" />
 
-
     <ImageView
         android:id="@+id/add_card"
         android:layout_width="70dp"
@@ -43,7 +42,24 @@
         android:layout_marginBottom="30dp"
         android:layout_marginRight="30dp" />
 
+    <ImageView
+        android:id="@+id/next_card"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/icon_next"
+        android:layout_below="@id/flashcard_question"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"/>
 
-
+    <ImageView
+        android:id="@+id/delete_card"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/icon_delete"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="30dp" />
 
 </RelativeLayout>
