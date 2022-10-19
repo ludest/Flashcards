@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.ViewAnimationUtils
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
-import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,8 +36,23 @@ class MainActivity : AppCompatActivity() {
         }
 
         flashcardQuestion.setOnClickListener {
+            //flashcardQuestion.visibility = View.INVISIBLE
+            //flashcardAnswer.visibility = View.VISIBLE
+
+            val answerSideView = findViewById<View>(R.id.flashcard_answer)
+
+            val cx = answerSideView.width / 2
+            val cy = answerSideView.height / 2
+
+            val finalRadius = Math.hypot(cx.toDouble(), cy.toDouble()).toFloat()
+
+            val anim = ViewAnimationUtils.createCircularReveal(answerSideView, cx, cy, 0f, finalRadius)
+
             flashcardQuestion.visibility = View.INVISIBLE
             flashcardAnswer.visibility = View.VISIBLE
+
+            anim.duration = 500
+            anim.start()
         }
 
         flashcardAnswer.setOnClickListener {
@@ -66,26 +83,50 @@ class MainActivity : AppCompatActivity() {
         addFlashcard.setOnClickListener {
             val intent = Intent(this, AddCardActivity::class.java)
             resultLauncher.launch(intent)
+            overridePendingTransition(R.anim.right_in, R.anim.left_out)
         }
+
         val nextButton = findViewById<ImageView>(R.id.next_card)
         nextButton.setOnClickListener {
             if (allFlashcards.isEmpty()) {
                 return@setOnClickListener
             }
-            currCardDisplayedIndex++
 
-            if (currCardDisplayedIndex >= allFlashcards.size) {
-                currCardDisplayedIndex = 0
-            }
-            allFlashcards = flashcardDatabase.getAllCards().toMutableList()
+            val leftOutAnim = AnimationUtils.loadAnimation(it.context, R.anim.left_out)
+            val rightInAnim = AnimationUtils.loadAnimation(it.context, R.anim.right_in)
 
-            val question = allFlashcards[currCardDisplayedIndex].question
-            val answer = allFlashcards[currCardDisplayedIndex].answer
+            leftOutAnim.setAnimationListener(object : Animation.AnimationListener {
+                override fun onAnimationStart(animation: Animation?) {
+                    flashcardAnswer.visibility = View.INVISIBLE
+                    flashcardQuestion.visibility = View.VISIBLE
+                }
 
-            flashcardQuestion.text = question
-            flashcardAnswer.text = answer
+                override fun onAnimationEnd(animation: Animation?) {
+                    flashcardQuestion.startAnimation(rightInAnim)
+
+                    currCardDisplayedIndex++
+
+                    if (currCardDisplayedIndex >= allFlashcards.size) {
+                        currCardDisplayedIndex = 0
+                    }
+                    allFlashcards = flashcardDatabase.getAllCards().toMutableList()
+
+                    val question = allFlashcards[currCardDisplayedIndex].question
+                    val answer = allFlashcards[currCardDisplayedIndex].answer
+
+                    flashcardQuestion.text = question
+                    flashcardAnswer.text = answer
+
+                    flashcardAnswer.visibility = View.INVISIBLE
+                    flashcardQuestion.visibility = View.VISIBLE
+
+                }
+
+                override fun onAnimationRepeat(animation: Animation?) {
+                }
+            })
+            flashcardQuestion.startAnimation(leftOutAnim)
         }
-
         findViewById<View>(R.id.delete_card).setOnClickListener {
             val flashcardQuestionToDelete = findViewById<TextView>(R.id.flashcard_question).text.toString()
             flashcardDatabase.deleteCard(flashcardQuestionToDelete)

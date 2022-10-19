@@ -14,7 +14,7 @@
         android:layout_marginHorizontal="5dp"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="What is Bruno Mars' real name?"
+        android:text="question"
         android:textColor="@color/white"
         android:textSize="40sp"
         android:background="@drawable/background_question" />
@@ -27,7 +27,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/background_answer"
         android:gravity="center"
-        android:text="Peter"
+        android:text="answer"
         android:textColor="@color/black"
         android:textSize="40sp"
         android:visibility="invisible" />
