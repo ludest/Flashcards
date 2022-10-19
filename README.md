@@ -1,5 +1,24 @@
 ## FLASHCARDS
 
+## Lab 4
+
+### App Description
+The app displays a question card and reveals the answer with a circular reveal animation when the card is clicked. It also allows creating a new card and the user is taken to this secondary page with a swipe-like transition. When the user navigates through all saved cards (which remain available after relaunching the app) there is also a swipe motion between the cards.
+
+### App Walk-though
+<img src="http://g.recordit.co/CWpTW2xlbI.gif" width=200><br>
+
+## Required
+- [x] User sees a transition animation when going from the main screen to the add card screen.
+- [x] User sees a reveal animation when the flashcard is tapped and the answer is shown
+- [x] User sees flashcards animating in / out when the 'next' button is tapped
+
+## Optional
+- [x] Extra styling is added!
+- [ ] User sees a countdown timer for each question
+- [ ] User sees a 'card flip' animation when the card is tapped
+- [ ] User sees a celebration animation with confetti when they answer a question correctly
+
 ## Lab 3
 
 ### App Description
